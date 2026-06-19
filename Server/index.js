@@ -12,6 +12,8 @@ const contactRoutes = require("./Routers/contactRoutes");
 const cafeInfoRoutes = require("./Routers/cafeInfoRoutes");
 const galleryRoutes = require("./Routers/galleryRoutes");
 
+const cors = require("cors");
+
 // Parse JSON
 app.use(express.json());
 
@@ -31,6 +33,17 @@ mongoose
   .connect(process.env.conectingstring)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
+
+
+  app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://your-frontend.vercel.app"
+    ],
+    credentials: true
+  })
+);
 
 // Routes
 app.use("/api/menu", menuRoutes);
