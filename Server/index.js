@@ -39,7 +39,7 @@ mongoose
   cors({
     origin: [
       "http://localhost:5174/",
-      "https://your-frontend.vercel.app"
+      "https://frontcoffee-web.vercel.app"
     ],
     credentials: true
   })
